@@ -1,3 +1,5 @@
+
+
 local active = true
 local trueActive = true
 local reachType = "Sphere"
@@ -284,4 +286,22 @@ game:GetService("RunService").RenderStepped:connect(function()
 			end
         end
     end
+end)
+
+local Open = true
+local Frame = game:GetService("CoreGui").ScreenGui.Frame
+local UserInputsService = game:GetService("UserInputService")
+Frame.Active = true
+Frame.Draggable = true
+
+UserInputsService.InputBegan:connect(function(keyCode)
+	if keyCode.keyCode ==Enum.KeyCode.LeftAlt then
+		if Open then
+			Frame.Visible = false
+			Open = false
+		else
+			Open = true
+			Frame.Visible = true
+		end
+	end
 end)
