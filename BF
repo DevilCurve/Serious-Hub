@@ -95,7 +95,7 @@ local Dropdown1 = Section2:CreateDropdown("Image", {"Default","Hearts","Abstract
 		Window:SetBackground("5553946656")
 	end
 end)
-Dropdown3:SetOption("Default")
+Dropdown1:SetOption("Default")
 
 local Colorpicker4 = Section2:CreateColorpicker("Color", function(Color)
 	Window:SetBackgroundColor(Color)
