@@ -57,7 +57,7 @@ end)
 end)
 
 local Toggle3 = Section1:CreateToggle("Auto Equip", nil, function(State)
-    AutoEquiped = a
+    AutoEquiped = State
 end)
 Toggle3:CreateKeybind("", function(Key)
 end)
