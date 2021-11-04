@@ -39,8 +39,8 @@ for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) 
     table.insert(Weaponlist,v.Name)
 end
 
-local Dropdown1 = Section1:CreateDropdown("Select Weapon"", Weaponlist, function(String)
-	Weapon = currentOption
+local Dropdown1 = Section1:CreateDropdown("Select Weapon", Weaponlist, function(String)
+	Weapon = String
 end)
 
 local Toggle2 = Section1:CreateToggle("Inf Energy", nil, function(State)
@@ -56,13 +56,11 @@ local Toggle2 = Section1:CreateToggle("Inf Energy", nil, function(State)
 end)
 end)
 
-Toggle2:CreateKeybind("", function(Key)
-end)
-
 local Toggle3 = Section1:CreateToggle("Auto Equip", nil, function(State)
     AutoEquiped = a
 end)
-
+Toggle3:CreateKeybind("", function(Key)
+end)
 spawn(function()
 	while wait() do
 	if AutoEquiped then
