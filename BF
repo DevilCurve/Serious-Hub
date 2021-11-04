@@ -60,10 +60,10 @@ local Section2 = Tab1:CreateSection("Settings Gui")-----------------------------
 local Toggle1 = Section2:CreateToggle("UI Toggle", nil, function(State)
 	Window:Toggle(State)
 end)
-Toggle2:CreateKeybind(tostring(Config.Keybind):gsub("Enum.KeyCode.", ""), function(Key)
+Toggle1:CreateKeybind(tostring(Config.Keybind):gsub("Enum.KeyCode.", ""), function(Key)
 	Config.Keybind = Enum.KeyCode[Key]
 end)
-Toggle2:SetState(true)
+Toggle1:SetState(true)
 
 local Button1 = Section2:CreateButton("Destory Gui", function()
 	for i,v in pairs(game:GetService("CoreGui"):GetDescendants()) do
