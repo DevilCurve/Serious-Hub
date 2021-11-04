@@ -43,8 +43,24 @@ local Dropdown1 = Section1:CreateDropdown("Select Weapon", Weaponlist, function(
 	Weapon = String
 end)
 
-local Toggle2 = Section1:CreateToggle("Inf Energy", nil, function(State)
-    _G.InfE = State
+local Toggle2 = Section1:CreateToggle("Auto Equip", nil, function(State)
+    AutoEquiped = State
+end)
+Toggle2:CreateKeybind("", function(Key)
+end)
+
+spawn(function()
+	while wait() do
+	if AutoEquiped then
+	pcall(function()
+	game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(Weapon))
+	end)
+	end
+	end
+	end)
+
+local Toggle3 = Section1:CreateToggle("Inf Stamina", nil, function(State)
+	_G.InfE = State
    local LocalPlayer = game:GetService'Players'.LocalPlayer
    local originalstam = LocalPlayer.Character.Energy.Value
    LocalPlayer.Character.Energy.Changed:connect(function()
@@ -55,21 +71,6 @@ local Toggle2 = Section1:CreateToggle("Inf Energy", nil, function(State)
 	end
 end)
 end)
-
-local Toggle3 = Section1:CreateToggle("Auto Equip", nil, function(State)
-    AutoEquiped = State
-end)
-Toggle3:CreateKeybind("", function(Key)
-end)
-spawn(function()
-	while wait() do
-	if AutoEquiped then
-	pcall(function()
-	game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(Weapon))
-	end)
-	end
-	end
-	end)
 
 local Button1 = Section1:CreateButton("Better Hitbox", function()
 	for i,v in pairs(game:GetDescendants()) do
