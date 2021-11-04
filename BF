@@ -1,6 +1,6 @@
 local Config = {
     WindowName = "Serious Hub",
-	Color = Color3.fromRGB(0,255,255),
+	Color = Color3.fromRGB(80, 245, 245),
 	Keybind = Enum.KeyCode.RightControl
 }
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/AlexR32/Roblox/main/BracketV3.lua"))()
@@ -32,6 +32,17 @@ end)
 Toggle1:CreateKeybind("", function(Key)
 end)
 
+local Weaponlist = {}
+local Weapon = nil
+
+for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+    table.insert(Weaponlist,v.Name)
+end
+
+local Dropdown1 = Section1:CreateDropdown("Select Weapon"", Weaponlist, function(String)
+	Weapon = currentOption
+end)
+
 local Toggle2 = Section1:CreateToggle("Inf Energy", nil, function(State)
     _G.InfE = State
    local LocalPlayer = game:GetService'Players'.LocalPlayer
@@ -44,6 +55,23 @@ local Toggle2 = Section1:CreateToggle("Inf Energy", nil, function(State)
 	end
 end)
 end)
+
+Toggle2:CreateKeybind("", function(Key)
+end)
+
+local Toggle3 = Section1:CreateToggle("Auto Equip", nil, function(State)
+    AutoEquiped = a
+end)
+
+spawn(function()
+	while wait() do
+	if AutoEquiped then
+	pcall(function()
+	game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(Weapon))
+	end)
+	end
+	end
+	end)
 
 local Button1 = Section1:CreateButton("Better Hitbox", function()
 	for i,v in pairs(game:GetDescendants()) do
@@ -95,12 +123,12 @@ local Dropdown1 = Section2:CreateDropdown("Image", {"Default","Hearts","Abstract
 		Window:SetBackground("5553946656")
 	end
 end)
-Dropdown1:SetOption("Default")
+Dropdown1:SetOption("Floral")
 
 local Colorpicker2 = Section2:CreateColorpicker("Color", function(Color)
 	Window:SetBackgroundColor(Color)
 end)
-Colorpicker2:UpdateColor(Color3.new(1,1,1))
+Colorpicker2:UpdateColor(Color3.new(0,0,0))
 
 local Slider1 = Section2:CreateSlider("Transparency",0,1,nil,false, function(Value)
 	Window:SetBackgroundTransparency(Value)
@@ -110,7 +138,7 @@ Slider1:SetValue(0)
 local Slider2 = Section2:CreateSlider("Tile Scale",0,1,nil,false, function(Value)
 	Window:SetTileScale(Value)
 end)
-Slider2:SetValue(0.5)
+Slider2:SetValue(0.2)
 
 local Tab2 = Window:CreateTab("Warp")--------------------------------------------------------------------------------
 local Section1 = Tab2:CreateSection("Warp Island")----------------------------------------
@@ -194,4 +222,69 @@ end)
 
 local Button1 = Section1:CreateButton("Teleport", function()
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[Select].Character.HumanoidRootPart.CFrame
+end)
+
+local Tab4 = Window:CreateTab("Shop")--------------------------------------------------------------------------------
+local Section1 = Tab4:CreateSection("Fighting Style")----------------------------------------
+
+local Button1 = Section1:CreateButton("Buy Blackleg $150,000", function()
+	local args = {
+        [1] = "BuyBlackLeg"
+    }
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end)
+local Button2 = Section1:CreateButton("Buy Electro $500,000", function()
+	local args = {
+        [1] = "BuyElectro"
+    }
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end)
+local Button3 = Section1:CreateButton("Buy Fishman Karate $750,000", function()
+	local args = {
+        [1] = "BuyFishmanKarate"
+    }
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end)
+local Button4 = Section1:CreateButton("Buy Superhuman $3M", function()
+	local args = {
+        [1] = "BuySuperhuman"
+    }
+
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end)
+local Button5 = Section1:CreateButton("Buy DeathStep $2.5M 5,000F", function()
+	local args = {
+        [1] = "BuyDeathStep"
+    }
+
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end)
+local Button6 = Section1:CreateButton("Buy Sharkman Karate $2.5M 5,000F", function()
+	local args = {
+        [1] = "BuySharkmanKarate",
+        [2] = true
+    }
+    game:GetService("ReplicatedStorage").Remotes.CommF:InvokeServer(unpack(args))
+    local args = {
+        [1] = "BuySharkmanKarate"
+    }
+    game:GetService("ReplicatedStorage").Remotes.CommF:InvokeServer(unpack(args))
+end)
+local Button7 = Section1:CreateButton("Buy Electric Claw $3M 5,000F", function()
+	local args = {
+        [1] = "BuyElectricClaw"
+    }
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+end)
+local Button8 = Section1:CreateButton("Coming Soon???", function()
+	
+end)
+
+local Section2 = Tab4:CreateSection("Misc")----------------------------------------
+
+local Button1 = Section2:CreateButton("Coming Soon???", function()
+	
+end)
+local Button1 = Section2:CreateButton("Coming Soon???", function()
+	
 end)
