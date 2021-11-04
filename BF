@@ -6,8 +6,8 @@ local Config = {
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/AlexR32/Roblox/main/BracketV3.lua"))()
 local Window = Library:CreateWindow(Config, game:GetService("CoreGui"))
 
-local Tab1 = Window:CreateTab("Main")
-local Section1 = Tab1:CreateSection("Main")
+local Tab1 = Window:CreateTab("Main")--------------------------------------------------------------------------------
+local Section1 = Tab1:CreateSection("Main")----------------------------------------
 
 local Toggle1 = Section1:CreateToggle("Anti Attack", nil, function(State)
     _G.Anti_Attack = State
@@ -55,15 +55,15 @@ local Button1 = Section1:CreateButton("Better Hitbox", function()
 end
 end)
 
-local Section2 = Tab1:CreateSection("Settings Gui")
+local Section2 = Tab1:CreateSection("Settings Gui")----------------------------------------
 
 local Toggle1 = Section2:CreateToggle("UI Toggle", nil, function(State)
 	Window:Toggle(State)
 end)
-Toggle1:CreateKeybind(tostring(Config.Keybind):gsub("Enum.KeyCode.", ""), function(Key)
+Toggle2:CreateKeybind(tostring(Config.Keybind):gsub("Enum.KeyCode.", ""), function(Key)
 	Config.Keybind = Enum.KeyCode[Key]
 end)
-Toggle1:SetState(true)
+Toggle2:SetState(true)
 
 local Button1 = Section2:CreateButton("Destory Gui", function()
 	for i,v in pairs(game:GetService("CoreGui"):GetDescendants()) do
@@ -73,10 +73,10 @@ local Button1 = Section2:CreateButton("Destory Gui", function()
 	end
 end)
 
-local Colorpicker3 = Section2:CreateColorpicker("UI Color", function(Color)
+local Colorpicker1 = Section2:CreateColorpicker("UI Color", function(Color)
 	Window:ChangeColor(Color)
 end)
-Colorpicker3:UpdateColor(Config.Color)
+Colorpicker1:UpdateColor(Config.Color)
 
 local Dropdown1 = Section2:CreateDropdown("Image", {"Default","Hearts","Abstract","Hexagon","Circles","Lace With Flowers","Floral"}, function(Name)
 	if Name == "Default" then
@@ -97,23 +97,23 @@ local Dropdown1 = Section2:CreateDropdown("Image", {"Default","Hearts","Abstract
 end)
 Dropdown1:SetOption("Default")
 
-local Colorpicker4 = Section2:CreateColorpicker("Color", function(Color)
+local Colorpicker2 = Section2:CreateColorpicker("Color", function(Color)
 	Window:SetBackgroundColor(Color)
 end)
-Colorpicker4:UpdateColor(Color3.new(1,1,1))
+Colorpicker2:UpdateColor(Color3.new(1,1,1))
 
-local Slider3 = Section2:CreateSlider("Transparency",0,1,nil,false, function(Value)
+local Slider1 = Section2:CreateSlider("Transparency",0,1,nil,false, function(Value)
 	Window:SetBackgroundTransparency(Value)
 end)
-Slider3:SetValue(0)
+Slider1:SetValue(0)
 
-local Slider4 = Section2:CreateSlider("Tile Scale",0,1,nil,false, function(Value)
+local Slider2 = Section2:CreateSlider("Tile Scale",0,1,nil,false, function(Value)
 	Window:SetTileScale(Value)
 end)
-Slider4:SetValue(0.5)
+Slider2:SetValue(0.5)
 
-local Tab2 = Window:CreateTab("Warp")
-local Section1 = Tab2:CreateSection("Warp Island")
+local Tab2 = Window:CreateTab("Warp")--------------------------------------------------------------------------------
+local Section1 = Tab2:CreateSection("Warp Island")----------------------------------------
 
 local Button1 = Section1:CreateButton("Castle on the sea", function()
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-4974, 314, -3023)
@@ -142,8 +142,14 @@ end)
 local Button9 = Section1:CreateButton("MiniSky", function()
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-254.48097229004, 49325.52734375, -35255.0859375)
 end)
+local Button10 = Section1:CreateButton("Raid", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-11559.947265625, 49.119415283203, -7560.666015625)
+end)
+local Button11 = Section1:CreateButton("Friend Area", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5232.009765625, 68.159622192383, -1451.9016113281)
+end)
 
-local Section2 = Tab2:CreateSection("Warp HakiColor")
+local Section2 = Tab2:CreateSection("Warp HakiColor")----------------------------------------
 
 local Dropdown1 = Section2:CreateDropdown("Select Warp", {"1","2","3","4","5","6"}, function(String)
 	_G.HakiWarp = String
@@ -168,4 +174,24 @@ local Button1 = Section2:CreateButton("Teleport", function()
 				if _G.HakiWarp == "6" then
 						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-13454.469726563, 467.68240356445, -10152.557617188)
                        end
+end)
+
+local Tab3 = Window:CreateTab("Players")--------------------------------------------------------------------------------
+local Section1 = Tab3:CreateSection("Players")----------------------------------------
+players = {}
+
+for i,v in pairs(game:GetService("Players"):GetChildren()) do
+	table.insert(players,v.Name)
+ end
+
+local Dropdown1 = Section1:CreateDropdown("Select Player", players, function(String)
+	Select = String
+	table.clear(players)
+for i,v in pairs(game:GetService("Players"):GetChildren()) do
+   table.insert(players,v.Name)
+end
+end)
+
+local Button1 = Section1:CreateButton("Teleport", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[Select].Character.HumanoidRootPart.CFrame
 end)
