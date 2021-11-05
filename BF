@@ -6,8 +6,8 @@ local Config = {
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/AlexR32/Roblox/main/BracketV3.lua"))()
 local Window = Library:CreateWindow(Config, game:GetService("CoreGui"))
 
-local Tab1 = Window:CreateTab("Main")--------------------------------------------------------------------------------
-local Section1 = Tab1:CreateSection("Main")----------------------------------------
+local Tab1 = Window:CreateTab("Serious Main")--------------------------------------------------------------------------------
+local Section1 = Tab1:CreateSection("Main Menu")----------------------------------------
 
 local Toggle1 = Section1:CreateToggle("Anti Attack", nil, function(State)
     _G.Anti_Attack = State
@@ -72,13 +72,19 @@ local Toggle3 = Section1:CreateToggle("Inf Stamina", nil, function(State)
 end)
 end)
 
-local Button1 = Section1:CreateButton("Better Hitbox", function()
+local Toggle4 = Section1:CreateToggle("Better Hitbox", nil, function(State)
+	_G.Better = State
+	while _G.Better do wait(3)
 	for i,v in pairs(game:GetDescendants()) do
+		local My = game.Players.LocalPlayer.Name
         if v.Name == "Humanoid" then
+			if v.Parent.Name ~= My then
         v.Parent.HumanoidRootPart.Size =  Vector3.new(100,100,100)
          v.Parent.HumanoidRootPart.CanCollide =  false
-    game.Players.LocalPlayer.Character.Humanoid.Health = 0
+		 v.Parent.Humanoid:ChangeState(11)
     end
+end
+end
 end
 end)
 
@@ -94,7 +100,7 @@ Toggle1:SetState(true)
 
 local Button1 = Section2:CreateButton("Destory Gui", function()
 	for i,v in pairs(game:GetService("CoreGui"):GetDescendants()) do
-		if v.Name == "Main" then
+		if v.Name == "Serious Main" then
 			v:Destroy()
 		end
 	end
@@ -139,7 +145,7 @@ local Slider2 = Section2:CreateSlider("Tile Scale",0,1,nil,false, function(Value
 end)
 Slider2:SetValue(0.2)
 
-local Tab2 = Window:CreateTab("Warp")--------------------------------------------------------------------------------
+local Tab2 = Window:CreateTab("Warp [PATCHED!!!]")--------------------------------------------------------------------------------
 local Section1 = Tab2:CreateSection("Warp Island")----------------------------------------
 
 local Button1 = Section1:CreateButton("Castle on the sea", function()
