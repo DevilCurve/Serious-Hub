@@ -1,0 +1,152 @@
+local Config = {
+    WindowName = "Serious Hub",
+	Color = Color3.fromRGB(80, 245, 245),
+	Keybind = Enum.KeyCode.RightControl
+}
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/AlexR32/Roblox/main/BracketV3.lua"))()
+local Window = Library:CreateWindow(Config, game:GetService("CoreGui"))
+
+local Tab1 = Window:CreateTab("Serious Main")--------------------------------------------------------------------------------
+local Section1 = Tab1:CreateSection("Main Menu")----------------------------------------
+
+local Slider1 = Section1:CreateSlider("Tween Speed",0,1000,nil,false, function(SpeedValue)
+	_G.Speed = SpeedValue
+end)
+Slider1:SetValue(250)
+
+local Button1 = Section1:CreateButton("Set Default Tween Speed", function()
+	Slider1:SetValue(250)
+end)
+
+function tweenteleoirtzz(XXXXx,Arfggg)
+    local Distance = (XXXXx - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+     local Speed = _G.Speed
+    game:GetService("TweenService"):Create(
+        game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart,
+        TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear),
+        {CFrame = Arfggg}
+    ):Play()
+_G.NoClip = true
+    wait(Distance/Speed)
+    _G.NoClip = false
+end
+
+local Toggle1 = Section1:CreateToggle("Auto Farm", nil, function(State)
+	_G.AutoFarm = State
+    _G.st = 1
+    while _G.AutoFarm do wait()
+        pcall(function()
+            if _G.AutoFarm == false then
+                tweenteleoirtzz:Stop()
+                 _G.st = 1
+           end
+            if _G.st == 1 then
+                tweenteleoirtzz(Vector3.new(-26.002626419067, 97.58642578125, 1072.5220947266),CFrame.new(-26.002626419067, 97.58642578125, 1072.5220947266))
+                _G.st = 2
+                end
+                
+                if _G.st == 2 then
+                tweenteleoirtzz(Vector3.new(-56.20166015625, 97.12786865234, 9498.041015625),CFrame.new(-56.20166015625, 97.12786865234, 9498.041015625))
+                _G.st = 3
+                end
+                
+                if _G.st == 3 then
+                tweenteleoirtzz(Vector3.new(-58.65837097168, -357.66592407227, 9500.107421875),CFrame.new(-58.65837097168, -357.66592407227, 9500.107421875))
+                wait(15)
+                _G.st = 1
+                end
+                
+         
+               
+end)
+end
+end)
+
+local Section2 = Tab1:CreateSection("Settings Gui")----------------------------------------
+
+local Toggle1 = Section2:CreateToggle("UI Toggle", nil, function(State)
+	Window:Toggle(State)
+end)
+Toggle1:CreateKeybind(tostring(Config.Keybind):gsub("Enum.KeyCode.", ""), function(Key)
+	Config.Keybind = Enum.KeyCode[Key]
+end)
+Toggle1:SetState(true)
+
+local Button1 = Section2:CreateButton("Destory Gui", function()
+	for i,v in pairs(game:GetService("CoreGui"):GetDescendants()) do
+		if v.Name == "LibraryName" then
+			v.Parent.Parent:Destroy()
+		end
+	end
+end)
+
+local Colorpicker1 = Section2:CreateColorpicker("UI Color", function(Color)
+	Window:ChangeColor(Color)
+end)
+Colorpicker1:UpdateColor(Config.Color)
+
+local Dropdown1 = Section2:CreateDropdown("Image", {"Default","Hearts","Abstract","Hexagon","Circles","Lace With Flowers","Floral"}, function(Name)
+	if Name == "Default" then
+		Window:SetBackground("2151741365")
+	elseif Name == "Hearts" then
+		Window:SetBackground("6073763717")
+	elseif Name == "Abstract" then
+		Window:SetBackground("6073743871")
+	elseif Name == "Hexagon" then
+		Window:SetBackground("6073628839")
+	elseif Name == "Circles" then
+		Window:SetBackground("6071579801")
+	elseif Name == "Lace With Flowers" then
+		Window:SetBackground("6071575925")
+	elseif Name == "Floral" then
+		Window:SetBackground("5553946656")
+	end
+end)
+Dropdown1:SetOption("Floral")
+
+local Colorpicker2 = Section2:CreateColorpicker("Color", function(Color)
+	Window:SetBackgroundColor(Color)
+end)
+Colorpicker2:UpdateColor(Color3.new(0,0,0))
+
+local Slider1 = Section2:CreateSlider("Transparency",0,1,nil,false, function(Value)
+	Window:SetBackgroundTransparency(Value)
+end)
+Slider1:SetValue(0)
+
+local Slider2 = Section2:CreateSlider("Tile Scale",0,1,nil,false, function(Value)
+	Window:SetTileScale(Value)
+end)
+Slider2:SetValue(0.2)
+
+local Tab2 = Window:CreateTab("Players")--------------------------------------------------------------------------------
+local Section1 = Tab2:CreateSection("Players")----------------------------------------
+players = {}
+
+for i,v in pairs(game:GetService("Players"):GetChildren()) do
+	table.insert(players,v.Name)
+ end
+
+local Dropdown1 = Section1:CreateDropdown("Select Player", players, function(String)
+	Select = String
+	
+end)
+
+local Button2 = Section1:CreateButton("Refresh", function()
+	table.clear(players)
+for i,v in pairs(game:GetService("Players"):GetChildren()) do
+   table.insert(players,v.Name)
+end
+end)
+
+local Button1 = Section1:CreateButton("Teleport", function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[Select].Character.HumanoidRootPart.CFrame
+end)
+
+while wait(.1) do
+    pcall(function()
+ if _G.NoClip then
+ game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+ end
+ end)
+ end
