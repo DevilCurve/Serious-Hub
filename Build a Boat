@@ -62,6 +62,25 @@ end)
 end
 end)
 
+local Toggle2 = Section1:CreateToggle("Auto Farm2", nil, function(State)
+	_G.AutoFarm2 = State
+    while _G.AutoFarm2 do wait()
+        pcall(function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-43.473129272461, 95.278244018555, 1300.0144042969)
+			_G.NoClip = true
+			wait(1)
+			_G.NoClip = false
+			tweenteleoirtzz(Vector3.new(-43.473129272461, 100.278244018555, 8750.0144042969),CFrame.new(-43.473129272461, 100.278244018555, 8750.0144042969))
+			_G.NoClip = true
+			wait(1)
+			_G.NoClip = false
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-55.590480804443, -360.17938232422, 9487.373046875)
+			wait(20)
+	
+		end)
+	end
+end)
+
 local Section2 = Tab1:CreateSection("Settings Gui")----------------------------------------
 
 local Toggle1 = Section2:CreateToggle("UI Toggle", nil, function(State)
