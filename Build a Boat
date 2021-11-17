@@ -66,13 +66,30 @@ local Toggle2 = Section1:CreateToggle("Auto Farm2", nil, function(State)
 	_G.AutoFarm2 = State
     while _G.AutoFarm2 do wait()
         pcall(function()
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-43.473129272461, 95.278244018555, 1300.0144042969)
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-43.473129272461, 95.278244018555, 1200.0144042969)
 			_G.NoClip = true
 			wait(1)
 			_G.NoClip = false
 			tweenteleoirtzz(Vector3.new(-43.473129272461, 100.278244018555, 8750.0144042969),CFrame.new(-43.473129272461, 100.278244018555, 8750.0144042969))
 			_G.NoClip = true
 			wait(1)
+			_G.NoClip = false
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-55.590480804443, -360.17938232422, 9487.373046875)
+			wait(20)
+	
+		end)
+	end
+end)
+
+local Toggle3 = Section1:CreateToggle("Auto GoldBlock", nil, function(State)
+	_G.AutoFarmGold = State
+    while _G.AutoFarmGold do wait()
+        pcall(function()
+			_G.NoClip = true
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-50.886680603027, 95.73082733154, 1367.8862304688)
+			wait(1)
+		    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-41.765445709229, 95.442428588867, 2140.0615234375)
+			wait(3)
 			_G.NoClip = false
 			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-55.590480804443, -360.17938232422, 9487.373046875)
 			wait(20)
