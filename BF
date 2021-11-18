@@ -491,7 +491,7 @@ TextColor = Color3.fromRGB(0, 183, 255)
 
 local page = venyx:addPage("Main", 5012544693)
 local section1 = page:addSection("Credit: Devil Curve#1787")
-local section1 = page:addSection("Script : Devil Curve#1787")
+local section1 = page:addSection("Script : NAYPRAMX#0562")
 local section1 = page:addSection("Discord Server : https://discord.gg/m67JGspWR6")
 section1:addButton("Copy Discord Server", function()
 setclipboard("https://discord.gg/m67JGspWR6")
