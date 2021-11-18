@@ -30,12 +30,26 @@ _G.NoClip = true
     wait(Distance/Speed)
     _G.NoClip = false
 end
+local VirtualUser=game:service'VirtualUser'
+game:service'Players'.LocalPlayer.Idled:connect(function()
+VirtualUser:CaptureController()
+VirtualUser:ClickButton2(Vector2.new())
+end)
+local a = game:GetService("Workspace").BoatStages.OtherStages.HauntedCastleStage:FindFirstChild("Rocks")
+if a ~= nil then
+game:GetService("Workspace").BoatStages.OtherStages.HauntedCastleStage:FindFirstChild("Rocks"):Destroy()
+end
+warn("Serious Anti-Afk has Loaded")
 
 local Toggle1 = Section1:CreateToggle("Auto Farm", nil, function(State)
 	_G.AutoFarm = State
     _G.st = 1
     while _G.AutoFarm do wait()
         pcall(function()
+			local a = game:GetService("Workspace").BoatStages.OtherStages.HauntedCastleStage:FindFirstChild("Rocks")
+             if a ~= nil then
+            game:GetService("Workspace").BoatStages.OtherStages.HauntedCastleStage:FindFirstChild("Rocks"):Destroy()
+            end
             if _G.AutoFarm == false then
                 tweenteleoirtzz:Stop()
                  _G.st = 1
@@ -66,6 +80,10 @@ local Toggle2 = Section1:CreateToggle("Auto Farm2", nil, function(State)
 	_G.AutoFarm2 = State
     while _G.AutoFarm2 do wait()
         pcall(function()
+		    local a = game:GetService("Workspace").BoatStages.OtherStages.HauntedCastleStage:FindFirstChild("Rocks")
+             if a ~= nil then
+            game:GetService("Workspace").BoatStages.OtherStages.HauntedCastleStage:FindFirstChild("Rocks"):Destroy()
+            end
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-43.473129272461, 95.278244018555, 1200.0144042969)
 			_G.NoClip = true
 			wait(1)
@@ -85,6 +103,10 @@ local Toggle3 = Section1:CreateToggle("Auto GoldBlock", nil, function(State)
 	_G.AutoFarmGold = State
     while _G.AutoFarmGold do wait()
         pcall(function()
+			local a = game:GetService("Workspace").BoatStages.OtherStages.HauntedCastleStage:FindFirstChild("Rocks")
+            if a ~= nil then
+            game:GetService("Workspace").BoatStages.OtherStages.HauntedCastleStage:FindFirstChild("Rocks"):Destroy()
+            end
 			_G.NoClip = true
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-50.886680603027, 95.73082733154, 1367.8862304688)
 			wait(1)
@@ -179,6 +201,68 @@ local Button1 = Section1:CreateButton("Teleport", function()
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[Select].Character.HumanoidRootPart.CFrame
 end)
 
+local Tab3 = Window:CreateTab("Shop")--------------------------------------------------------------------------------
+local Section1 = Tab3:CreateSection("Shop")----------------------------------------
+
+local Dropdown1 = Section1:CreateDropdown("Select", {
+"Sign",
+"BoatMotor",
+"Car Parts",
+"Balloons",
+"JetPacks",
+"Parachutes",
+"Shield Generators",
+"Harpoon",
+"HingeBlocks",
+"Pistons",
+"Locked Doors",
+"Magnets",
+"PVP Pack",
+"LegacyCarPack",
+"Switch",
+"Button",
+"LightBulbs",
+"Camera",
+"DomeCamera",
+"Plane Parts",
+"GlassBlock",
+"StoneBlock",
+"FabricBlock",
+"PlasticBlock",
+"GrassBlock",
+"SandBlock",
+"RustedBlock",
+"MetalBlock",
+"ConcreteBlock",
+"IceBlock",
+"CoalBlock",
+"BrickBlock",
+"MarbleBlock",
+"TitaniumBlock",
+"ObsidianBlock",
+"WoodBlock",
+"Common Chest",
+"Uncommon Chest",
+"Rare Chest",
+"Epic Chest",
+"Legendary Chest"
+}, function(String)
+	_G.SelectShop = String
+end)
+
+local TextBox1 = Section1:CreateTextBox("Buy for", "Only numbers", true, function(Value)
+	_G.SelectNumber = Value
+end)
+
+local Button1 = Section1:CreateButton("Buy", function()
+	local args = {
+		[1] = _G.SelectShop,
+		[2] = _G.SelectNumber
+	}
+	
+	workspace.ItemBoughtFromShop:InvokeServer(unpack(args))
+end)
+
 while wait(.1) do
     pcall(function()
  if _G.NoClip then
@@ -186,3 +270,4 @@ while wait(.1) do
  end
  end)
  end
+
