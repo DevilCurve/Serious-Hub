@@ -595,7 +595,7 @@ end
 
 function tweenteleport(Speed,Part)
    local Distancex = (Vector3.new(Part) - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
-local Speexd = Speed -- ความเร็วของมึง
+local Speexd = 249 -- ความเร็วของมึง
 tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distancex/Speexd, Enum.EasingStyle.Linear)
 tweenx = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(Part)})
 tweenx:Play()
@@ -664,6 +664,7 @@ while _G.AutoFarm do game:GetService("RunService").Heartbeat:wait()
          elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
             if _G.AutoFarm == true then
                CheckQuest()
+               game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
             local Distance = (game.Workspace[NameMon].Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
             local Speed = 249 -- ความเร็วของมึง
             tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear)
@@ -1701,7 +1702,7 @@ end
 end)
 game:GetService("RunService").Heartbeat:Connect(function()
     pcall(function()
-     if _G.FastAttack then
+    if _G.FastAttack and (_G.AutoFarm or _G.elitehunt or _G.AutoFarmAllBoss or _G.AutoFarmBossHallow) then
             require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework).activeController.timeToNextAttack = 0
             game:GetService'VirtualUser':CaptureController()
             game:GetService'VirtualUser':Button1Down(Vector2.new(851, 158))
