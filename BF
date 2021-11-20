@@ -665,7 +665,7 @@ while _G.AutoFarm do game:GetService("RunService").Heartbeat:wait()
             if _G.AutoFarm == true then
                CheckQuest()
             local Distance = (game.Workspace[NameMon].Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
-            local Speed = 10000 -- ความเร็วของมึง
+            local Speed = 249 -- ความเร็วของมึง
             tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear)
             tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrameQuest})
             tween:Play()
