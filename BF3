@@ -28,7 +28,7 @@ if OldWorld then
    end
 end
 
-local VirtualUser=game:service'VirtualUser'
+local VirtualUser = game:service'VirtualUser'
 game:service'Players'.LocalPlayer.Idled:connect(function()
 VirtualUser:CaptureController()
 VirtualUser:ClickButton2(Vector2.new())
@@ -547,6 +547,52 @@ end
 end)
 section2:addToggle("Fast Attack", false, function(value)
 _G.FastAttack = value
+end)
+
+section2:addToggle("AutoClick", false, function(value)
+_G.AutoClick = value
+end)
+
+section2:addToggle("UltraHitbox", false, function(value)
+_G.UltraHitbox = value
+end)
+
+spawn(function()
+game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.FastAttack == true then
+local Combat = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
+        local Camera = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework.CameraShaker)
+        Camera.CameraShakeInstance.CameraShakeState = {FadingIn = 3, FadingOut = 2, Sustained = 0, Inactive = 1}
+        Combat.activeController.timeToNextAttack = 0
+     end   
+end)
+end)
+end)
+
+spawn(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.AutoClick == true or _G.AutoFarm == true then
+     game:GetService'VirtualUser':CaptureController()
+     game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+end
+end)
+end)
+end)
+
+spawn(function()
+game:GetService("RunService").RenderStepped:Connect(function()
+    pcall(function()
+        if _G.UltraHitbox == true then
+local Combat = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
+        Combat.activeController.hitboxMagnitude = 240
+        if _G.UltraHitbox == false then
+            Combat.activeController.hitboxMagnitude = 0
+            end
+end
+end)
+end)
 end)
 
 function itemequip(namex)
@@ -1700,16 +1746,6 @@ if _G.RQIO == true or _G.AutoFarmAllBoss == true then
    game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 end
 end)
-game:GetService("RunService").Heartbeat:Connect(function()
-    pcall(function()
-    if _G.FastAttack and (_G.AutoFarm or _G.elitehunt or _G.AutoFarmAllBoss or _G.AutoFarmBossHallow) then
-            require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework).activeController.timeToNextAttack = 0
-            game:GetService'VirtualUser':CaptureController()
-            game:GetService'VirtualUser':Button1Down(Vector2.new(851, 158))
-            require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework.CameraShaker).CameraShakeInstance.CameraShakeState = {FadingIn = 3,FadingOut =  2,Sustained = 0,Inactive = 1}
-     end
-    end)
- end)
     
 game:GetService("RunService").Heartbeat:Connect(function()
     pcall(function()
