@@ -468,6 +468,9 @@ function CheckQuest()
             Reward = "Reward:\n$13,750\n80,500,000 Exp."
             CFrameQuest = CFrame.new(-9515.39551, 172.266037, 6078.89746, 0.0121199936, -9.78649624e-08, 0.999926567, 2.30358754e-08, 1, 9.75929382e-08, -0.999926567, 2.18513581e-08, 0.0121199936)
             CFrameMon = CFrame.new(-9554.11035, 65.6141663, 6041.73584, -0.877069294, 5.33355795e-08, -0.480364174, 2.06420765e-08, 1, 7.33423562e-08, 0.480364174, 5.44105987e-08, -0.877069294)
+            SPAWNPOINT = "HauntedCastle"
+            SPAWNPOINTPOS = CFrame.new(-9547.43359375, 142.13984680176, 5534.869140625)
+      
       end
    end
 end
@@ -485,13 +488,17 @@ local venyx = library.new("Serious Hub [ Blox Fruit ]", 5013109572)
 
 -- themes
 local themes = {
-Glow = Color3.fromRGB(0, 165, 248),
-TextColor = Color3.fromRGB(0, 183, 255)
+Background = Color3.fromRGB(24, 24, 24),
+Glow = Color3.fromRGB(0, 255, 255),
+Accent = Color3.fromRGB(10, 10, 10),
+LightContrast = Color3.fromRGB(20, 20, 20),
+DarkContrast = Color3.fromRGB(14, 14, 14),  
+TextColor = Color3.fromRGB(0, 255, 255)
 }
 
 local page = venyx:addPage("Main", 5012544693)
 local section1 = page:addSection("Credit: Devil Curve#1787")
-local section1 = page:addSection("Script : NAYPRAMX#0562")
+local section1 = page:addSection("Script : x2Destinyx#0001")
 local section1 = page:addSection("Discord Server : https://discord.gg/m67JGspWR6")
 section1:addButton("Copy Discord Server", function()
 setclipboard("https://discord.gg/m67JGspWR6")
@@ -630,126 +637,98 @@ for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
 end
 end)
 
-function tweenxd(Speed,Part)
-    local Distance = (game.Workspace[Part].Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
-local Speed = 249 -- ความเร็วของมึง
-tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear)
-tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = workspace[Part].CFrame})
-tween:Play()
-wait(Distance/Speed)
+
+function tweenteleoirtsz(XXXXx)
+          local Distance = (Vector3.new(XXXXx) - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+    local Speededed = 5000
+    game:GetService("TweenService"):Create(
+        game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart,
+        TweenInfo.new(Distance/Speededed, Enum.EasingStyle.Linear),
+        {CFrame = XXXXx}
+    ):Play()
+    _G.NoClip = true
+    wait(Distance/Speededed)
+    _G.NoClip = false
 end
 
-function tweenteleport(Speed,Part)
-   local Distancex = (Vector3.new(Part) - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
-local Speexd = 249 -- ความเร็วของมึง
-tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distancex/Speexd, Enum.EasingStyle.Linear)
-tweenx = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(Part)})
-tweenx:Play()
-wait(Distancex/Speexd)
-end
 section2:addToggle("Auto Farm", false, function(value)
 _G.AutoFarm = value
-while _G.AutoFarm do game:GetService("RunService").Heartbeat:wait()
-   pcall(function()
-       local magnitude = (workspace[NameMon].Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-       if magnitude < 1000 then
-   if _G.AutoFarm == true then
-      CheckQuest()
-      if game:GetService("Workspace").Enemies:FindFirstChild(Ms) then
-         if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-            if string.find(game.Players.LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
-               for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                  if v.Name == Ms then
-                     if v.Humanoid.Health > 0 then
-                        repeat game:GetService("RunService").Heartbeat:wait()
-                           click()
-                           itemequip(weapongg)
-                            v.Humanoid:ChangeState(11)
-                            MinHealth = v.Humanoid.MaxHealth * 50 / 100
-                            local magnitudX = (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-                           if v.Humanoid.Health > MinHealth then
-                                local Distance = (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
-                                local Speed = 500 -- ความเร็วของมึง
-                                tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear)
-                                tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,0,15)})
-                                tween:Play()
-                              else
-                               tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(0.5, Enum.EasingStyle.Linear)
-                                tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,15,0)})
-                                tween:Play()
-                           end
-                           game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
-                           v.HumanoidRootPart.Size = Vector3.new(40,40,40)
-                           v.HumanoidRootPart.Transparency = 0.99
-                           v.Humanoid:ChangeState(11)
-                           game.Players.LocalPlayer.Character.HumanoidRootPart.CanCollide = false
-                           v.Humanoid.WalkSpeed = 0
-                           game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-                        until v.Humanoid.Health <= 0 or _G.AutoFarm == false
-                     elseif v.Humanoid.Health <= 0  then
-                    local Distance = (Vector3.new(CFrameMon) - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
-                    local Speed = 5000 -- ความเร็วของมึง
-                    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear)
-                    tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrameMon})
-                    tween:Play()
-                    wait(Distance/Speed)
-                     end
-                  end
-               end
-            else
-               CheckQuest()
+end)
+    
+Method = CFrame.new(0,25,0)
 
-               local args = {
-                  [1] = "AbandonQuest"
-               }
+spawn(function()
+   while wait(3) do
+       if Methodnow == 1 then
+        Methodnow = 2
+        Method = CFrame.new(0,25,0)
+        else
+        Methodnow = 1
+        Method = CFrame.new(0,0,25)
+       end
+    end
+end)
 
-               game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+spawn(function()
+   while wait() do
+       if _G.WARP then
+           game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+        else
+            game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+        end
+    end
+end)
 
-               game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon
-            end
-         elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-            if _G.AutoFarm == true then
-               CheckQuest()
-               game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
-            local Distance = (game.Workspace[NameMon].Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
-            local Speed = 249 -- ความเร็วของมึง
-            tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear)
-            tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrameQuest})
-            tween:Play()
-            wait(Distance/Speed)
-               wait(1)
+spawn(function()
+    game:GetService("RunService").Heartbeat:Connect(function()
+        if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and _G.AutoFarm or _G.NoClip then
+            setfflag("HumanoidParallelRemoveNoPhysics", "False")
+            setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+            game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
+        end
+    end)
+end)
 
-               local args = {
-                  [1] = "StartQuest",
-                  [2] = NaemQuest,
-                  [3] = LevelQuest
-               }
 
-               game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-               end
-         end
-              else
-         CheckQuest()
-             local Distance = (Vector3.new(CFrameMon) - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
-        local Speed = 5000 -- ความเร็วของมึง
-        tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear)
-        tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrameMon})
-        tween:Play()
-        wait(Distance/Speed)
-         end
-   end
-      else
-          CheckQuest()
-         local Distancex = (game.Workspace[NameMon].Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude -- จุดที่จะไป Position Only
-        local Speexd = 120 -- ความเร็วของมึง
-        tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distancex/Speexd, Enum.EasingStyle.Linear)
-        tweenx = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrameQuest})
-        tweenx:Play()
-        print(Distancex/Speexd)
-        wait(Distancex/Speexd)
-     end
-   end)
-end
+spawn(function()
+    while wait() do
+        if _G.AutoFarm then
+            pcall(function()
+                CheckQuest()
+    itemequip(weapongg)
+                if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,NameMon) then
+                    local args = {
+                        [1] = "AbandonQuest"
+                    }
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                end
+                if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+                        tweenteleoirtsz(CFrameQuest)
+                        wait(0.8)
+                            local args = {
+                                [1] = "StartQuest",
+                                [2] = NaemQuest,
+                                [3] = LevelQuest
+                            }
+                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                        wait(0.8)
+                        tweenteleoirtsz(CFrameMon)
+                    end
+                for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                    for i2,v2 in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        if v.Name == Ms and v2.Name == Ms then
+                            v2.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
+                            v.HumanoidRootPart.Size = Vector3.new(50, 50, 50)
+                            v2.HumanoidRootPart.Size = Vector3.new(50, 50, 50)
+                            v2.HumanoidRootPart.CanCollide = false
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * Method
+                            sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+                        end
+                    end
+                end
+            end)
+        end
+    end
 end)
     
 function fruitinbackpack()
@@ -1746,14 +1725,6 @@ if _G.RQIO == true or _G.AutoFarmAllBoss == true then
    game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
 end
 end)
-    
-game:GetService("RunService").Heartbeat:Connect(function()
-    pcall(function()
-    if _G.AutoFarm or _G.NoClip then
-        game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-    end
-    end)
-end)
 
 while wait(.1) do
    pcall(function()
@@ -2127,7 +2098,7 @@ while wait(.1) do
         end
         end)
     end
-    if _G.AutoFarm then
+if _G.AutoFarm then
                 local args = {
         [1] = "SetSpawnPoint"
         }
