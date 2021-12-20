@@ -1,5 +1,5 @@
 wait(1)
-
+pcall(function()
 if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7449423635 then
 	local create = loadstring(game:HttpGet("https://raw.githubusercontent.com/DevilCurve/Serious-Hub/main/1.lua"))()
 	
@@ -6017,11 +6017,13 @@ end)
 		SelectedPly:Refresh("Selected Player : "..SelectedKillPlayer)
 	end)
 	page9:Button("Refrsh Player",function()
+	    pcall(function()
 		PlayerName = {}
 		Player:Clear()
 		for i,v in pairs(game.Players:GetChildren()) do  
 			Player:Add(v.Name)
 		end
+		end)
 	end)
 	game:GetService("RunService").Heartbeat:Connect(
 	function()
@@ -11125,4 +11127,5 @@ end
 			end
 			 Teleport()
 		end)
-	end
+end
+end)
