@@ -700,7 +700,7 @@ end
 	
 	spawn(function()
     game:GetService("RunService").Heartbeat:Connect(function()
-        if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and (_G.AutoFarm or _G.NoClip or _G.Observation)  then
+        if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and (_G.AutoFarm or _G.NoClip or _G.Observation or _G.MobAura or _G.AutoNew)  then
             setfflag("HumanoidParallelRemoveNoPhysics", "False")
             setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
             game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
@@ -744,6 +744,9 @@ function totarget(CFgo)
     local tween, err = pcall(function()
         tween = tween_s:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], info, {CFrame = CFgo})
         tween:Play()
+        _G.NoClip = true
+        wait((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - CFgo.Position).Magnitude/300)
+         _G.NoClip = false
     end)
     if not tween then return err end
 end
@@ -752,6 +755,7 @@ function StopTween()
 	pcall(function()
 		tween:Cancel()
 		_G.StopTween = true
+		_G.NoClip = false
 		wait()
 		_G.StopTween = false
 	end)
@@ -1507,7 +1511,7 @@ end
 						if off.CanCollide == false then
 							_G.AutoSaber = false
 						end
-					until G.AutoOpenSaber == false or off.CanCollide == false
+					until _G.AutoOpenSaber == false or off.CanCollide == false
 					if game:GetService("Workspace").Enemies:FindFirstChild("Saber Expert [Lv. 200] [Boss]") then
 						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 							if v.Name == "Saber Expert [Lv. 200] [Boss]" and v.Humanoid.Health > 0 and v:IsA("Model") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
