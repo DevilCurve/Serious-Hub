@@ -1,7 +1,7 @@
 wait(1)
 pcall(function()
 if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7449423635 then
-	local create = loadstring(game:HttpGet("https://raw.githubusercontent.com/DevilCurve/Serious-Hub/main/1.lua"))()
+	local create = loadstring(game:HttpGet("https://raw.githubusercontent.com/DevilCurve/Serious-Hub/main/testcolor.lua"))()
 	
 	local Window = create:Win("S E R I O U S H U B")
 	local Tap1 = Window:Taps("Auto Farm")
@@ -739,6 +739,7 @@ end)
 	local VirtualUser = game:GetService('VirtualUser')
 
 function totarget(CFgo)
+    pcall(function()
     local tween_s = game:service"TweenService"
     local info = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - CFgo.Position).Magnitude/300, Enum.EasingStyle.Linear)
     local tween, err = pcall(function()
@@ -749,6 +750,7 @@ function totarget(CFgo)
          _G.NoClip = false
     end)
     if not tween then return err end
+    end)
 end
 
 function StopTween()
@@ -2883,9 +2885,62 @@ end)
 		end)
 	end
 	
-		page1:Toggle("Auto Randim Bone",false,function(e)
+	local fruitname = {
+        "Spike-Spike",
+        "Chop-Chop",
+        "Spring-Spring",
+        "Smoke-Smoke",
+        "Flame-Flame",
+        "Ice-Ice",
+        "Sand-Sand",
+        "Dark-Dark",
+        "Light-Light",
+        "Rubber-Rubber",
+        "Barrier-Barrier",
+        "Magma-Magma",
+        "Quake-Quake",
+        "Human-Human: Buddha",
+        "String-String",
+        "Bird-Bird: Phoenix",
+        "Rumble-Rumble",
+        "Paw-Paw",
+        "Gravity-Gravity",
+         "Dough-Dough",
+         "Control-Control",
+         "Dragon-Dragon",
+         "Kilo-Kilo",
+         "Spin-Spin",
+         "Bird-Bird: Falcon",
+         "Diamond-Diamond",
+         "Love-Love",
+         "Door-Door",
+         "Venon-Venon",
+         "Revive-Revive",
+         "Shadow-Shadow"
+    }
+	
+	
+		page1:Toggle("Auto Random Bone",false,function(e)
 			_G.RandomBone = e
 		end)
+		
+		 page1:Toggle("Auto Store Fruit All",false,function(ll)
+    _G.AutoStoreFruitAll = ll
+    while _G.AutoStoreFruitAll do wait()
+        pcall(function()
+            for i,fruitnamex in pairs(fruitname) do
+            local args = {
+                [1] = "StoreFruit",
+                [2] = tostring(fruitnamex)
+            }
+            
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+            end
+        end)
+    end
+		 end)
+		 
+    
 		
 		spawn(function()
 		    while wait() do
@@ -4199,7 +4254,7 @@ end)
 		else
 			if game:GetService("Workspace").Enemies:FindFirstChild(SelectBoss) or game:GetService("ReplicatedStorage"):FindFirstChild(SelectBoss) then
 				if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-					print()
+		
 					CheckQuestBoss()
 					totarget(CFrameQuestBoss)
 					repeat wait() until (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-CFrameQuestBoss.Position).Magnitude <= 10
@@ -6894,6 +6949,7 @@ end)
 						end
 					end)
 					if game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland5") or game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland4") or game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland3") or game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland2") or game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland1") then
+					    pcall(function()
 						if game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland5") then
 								
 							totarget(game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland5"):FindFirstChildWhichIsA("Part").CFrame*CFrame.new(0,20,0))
@@ -6913,8 +6969,9 @@ end)
 						elseif game:GetService("Workspace").Map.RaidMap:FindFirstChild("RaidIsland1") then
 							
 
-						
+			
 						end
+						end)
 					end
 					local args = {
 						[1] = "Awakener",
