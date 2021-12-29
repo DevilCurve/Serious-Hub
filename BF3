@@ -1,7 +1,9 @@
+_G.Color = Color3.fromRGB(0, 255, 255)
+_G.Color2 = Color3.fromRGB(0, 255, 255)
 wait(1)
 pcall(function()
 if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7449423635 then
-	local create = loadstring(game:HttpGet("https://raw.githubusercontent.com/DevilCurve/Serious-Hub/main/testcolor.lua"))()
+	local create = loadstring(game:HttpGet("https://raw.githubusercontent.com/DevilCurve/Serious-Hub/main/1.lua"))()
 	
 	local Window = create:Win("S E R I O U S H U B")
 	local Tap1 = Window:Taps("Auto Farm")
@@ -744,10 +746,8 @@ function totarget(CFgo)
     local info = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - CFgo.Position).Magnitude/300, Enum.EasingStyle.Linear)
     local tween, err = pcall(function()
         tween = tween_s:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], info, {CFrame = CFgo})
-        tween:Play()
         _G.NoClip = true
-        wait((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - CFgo.Position).Magnitude/300)
-         _G.NoClip = false
+        tween:Play()
     end)
     if not tween then return err end
     end)
@@ -780,8 +780,7 @@ function autofarm()
 			elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 				CheckQuest()
 				if game:GetService("Workspace").Enemies:FindFirstChild(Ms) then
-					pcall(
-						function()
+					pcall(function()
 							for i, v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 								CheckQuest()  
 								if v.Name == Ms then
