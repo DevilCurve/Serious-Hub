@@ -737,7 +737,7 @@ end
 	
 	spawn(function()
     game:GetService("RunService").Heartbeat:Connect(function()
-        if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and (_G.AutoFarm or _G.NoClip or _G.Observation or _G.MobAura or _G.AutoNew)  then
+        if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and (_G.AutoFarm or _G.Observation or _G.AutoNew or _G.Factory or _G.GunMastery or _G.Mastery or FramBoss or FramAllBoss or _G.AutoBartilo or _G.MobAura or _G.AutoRengoku or _G.AutoSharkman or _G.Ectoplasm or _G.PoleHop or _G.SwanHop or _G.BlackBeardHop or _G.Chest or _G.Electro or rainbowhaki or Hunter or observationv2 or _G.ElitehuntHop or _G.EliteHunt or _G.Pole or _G.Tushitahop or _G.YamaHop or _G.StoreFruit or _G.HolyTorch)  then
             setfflag("HumanoidParallelRemoveNoPhysics", "False")
             setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
             game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
@@ -747,7 +747,7 @@ end)
 
 spawn(function()
     game:GetService("RunService").Heartbeat:Connect(function()
-        if _G.AutoFarm or _G.NoClip or _G.Observation or _G.MobAura or _G.AutoNew then
+        if _G.AutoFarm or _G.Observation or _G.AutoNew or _G.Factory or _G.GunMastery or _G.Mastery or FramBoss or FramAllBoss or _G.AutoBartilo or _G.MobAura or _G.AutoRengoku or _G.AutoSharkman or _G.Ectoplasm or _G.PoleHop or _G.SwanHop or _G.BlackBeardHop or _G.Chest or _G.Electro or rainbowhaki or Hunter or observationv2 or _G.ElitehuntHop or _G.EliteHunt or _G.Pole or _G.Tushitahop or _G.YamaHop or _G.StoreFruit or _G.HolyTorch then
             if not game:GetService("Workspace"):FindFirstChild("LOL") then
                 local LOL = Instance.new("Part")
                 LOL.Name = "LOL"
@@ -768,7 +768,7 @@ end)
 
 spawn(function()
     game:GetService("RunService").Stepped:Connect(function()
-        if _G.AutoFarm or _G.NoClip or _G.Observation or _G.MobAura or _G.AutoNew then
+        if _G.AutoFarm or _G.Observation or _G.AutoNew or _G.Factory or _G.GunMastery or _G.Mastery or FramBoss or FramAllBoss or _G.AutoBartilo or _G.MobAura or _G.AutoRengoku or _G.AutoSharkman or _G.Ectoplasm or _G.PoleHop or _G.SwanHop or _G.BlackBeardHop or _G.Chest or _G.Electro or rainbowhaki or Hunter or observationv2 or _G.ElitehuntHop or _G.EliteHunt or _G.Pole or _G.Tushitahop or _G.YamaHop or _G.StoreFruit or _G.HolyTorch then
             for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
                 if v:IsA("BasePart") then
                     v.CanCollide = false
