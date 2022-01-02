@@ -2,7 +2,7 @@ _G.Color = Color3.fromRGB(0, 255, 255)
 _G.Color2 = Color3.fromRGB(0, 255, 255)
 wait(1)
 if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7449423635 then
-	local create = loadstring(game:HttpGet("https://raw.githubusercontent.com/DevilCurve/Serious-Hub/main/1.lua"))()
+	local create = loadstring(game:HttpGet("https://raw.githubusercontent.com/DevilCurve/Serious-Hub/main/testcolor.lua"))()
 	
 	local Window = create:Win("S E R I O U S H U B")
 	local Tap1 = Window:Taps("Auto Farm")
