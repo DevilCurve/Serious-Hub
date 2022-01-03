@@ -301,6 +301,9 @@ function CheckQuest()
             PosQuest = Vector3.new(61122.5625, 18.4716396, 1568.16504)
             CFrameMon = CFrame.new(61163.8515625, 5.3073043823242, 1819.7841796875)
             PosMon = Vector3.new(61163.8515625, 5.3073043823242, 1819.7841796875)
+            if _G.AutoFarm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
+			end
         elseif MyLevel == 400 or MyLevel <= 449 then 
             Ms = "Fishman Commando [Lv. 400]"
             NaemQuest = "FishmanQuest"
@@ -310,6 +313,9 @@ function CheckQuest()
             PosQuest = Vector3.new(61122.5625, 18.4716396, 1568.16504)
             CFrameMon = CFrame.new(61163.8515625, 5.3073043823242, 1819.7841796875)
             PosMon = Vector3.new(61163.8515625, 5.3073043823242, 1819.7841796875)
+            if _G.AutoFarm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
+			end
         elseif MyLevel == 450 or MyLevel <= 474 then 
             Ms = "God's Guard [Lv. 450]"
             NaemQuest = "SkyExp1Quest"
@@ -319,6 +325,9 @@ function CheckQuest()
             PosQuest = Vector3.new(-4721.71436, 845.277161, -1954.20105)
             CFrameMon = CFrame.new(-4716.95703, 853.089722, -1933.925427)
             PosMon = Vector3.new(-4716.95703, 853.089722, -1933.925427)
+            if _G.AutoFarm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4607.82275, 872.54248, -1667.55688))
+			end
         elseif MyLevel == 475 or MyLevel <= 524 then 
             Ms = "Shanda [Lv. 475]"
             NaemQuest = "SkyExp1Quest"
@@ -328,6 +337,9 @@ function CheckQuest()
             PosQuest = Vector3.new(-7863.63672, 5545.49316, -379.826324)
             CFrameMon = CFrame.new(-7685.12354, 5601.05127, -443.171509)
             PosMon = Vector3.new(-7685.12354, 5601.05127, -443.171509)
+            if _G.AutoFarm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-7894.6176757813, 5547.1416015625, -380.29119873047))
+			end
         elseif MyLevel == 525 or MyLevel <= 549 then 
             Ms = "Royal Squad [Lv. 525]"
             NaemQuest = "SkyExp2Quest"
@@ -484,6 +496,46 @@ function CheckQuest()
             PosQuest = Vector3.new(-5431.09473, 15.9868021, -5296.53223)
             CFrameMon = CFrame.new(-5169.71729, 34.1234779, -4669.73633)
             PosMon = Vector3.new(-5169.71729, 34.1234779, -4669.73633)
+        elseif Lv == 1250 or Lv <= 1274 or SelectMonster == "Ship Deckhand [Lv. 1250]" then -- Ship Deckhand
+            Ms = "Ship Deckhand [Lv. 1250]"
+            NaemQuest = "ShipQuest1"
+            LevelQuest = 1
+            NameMon = "Ship Deckhand"
+            CFrameQuest = CFrame.new(1040.2927246094, 125.08293151855, 32911.0390625)
+            CFrameMon = CFrame.new(921.12365722656, 125.9839553833, 33088.328125)
+			if _G.AutoFarm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 20000 then
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
+			end
+		elseif Lv == 1275 or Lv <= 1299 or SelectMonster == "Ship Engineer [Lv. 1275]" then -- Ship Engineer
+            Ms = "Ship Engineer [Lv. 1275]"
+            NaemQuest = "ShipQuest1"
+            LevelQuest = 2
+            NameMon = "Ship Engineer"
+            CFrameQuest = CFrame.new(1040.2927246094, 125.08293151855, 32911.0390625)
+            CFrameMon = CFrame.new(886.28179931641, 40.47790145874, 32800.83203125)
+			if _G.AutoFarm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 20000 then
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
+			end
+		elseif Lv == 1300 or Lv <= 1324 or SelectMonster == "Ship Steward [Lv. 1300]" then -- Ship Steward
+            Ms = "Ship Steward [Lv. 1300]"
+            NaemQuest = "ShipQuest2"
+            LevelQuest = 1
+            NameMon = "Ship Steward"
+            CFrameQuest = CFrame.new(971.42065429688, 125.08293151855, 33245.54296875)
+            CFrameMon = CFrame.new(943.85504150391, 129.58183288574, 33444.3671875)
+			if _G.AutoFarm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 20000 then
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
+			end
+		elseif Lv == 1325 or Lv <= 1349 or SelectMonster == "Ship Officer [Lv. 1325]" then -- Ship Officer
+            Ms = "Ship Officer [Lv. 1325]"
+            NaemQuest = "ShipQuest2"
+            LevelQuest = 2
+            NameMon = "Ship Officer"
+            CFrameQuest = CFrame.new(971.42065429688, 125.08293151855, 33245.54296875)
+            CFrameMon = CFrame.new(955.38458251953, 181.08335876465, 33331.890625)
+			if _G.AutoFarm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 20000 then
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
+			end
         elseif MyLevel == 1350 or MyLevel <= 1374 then 
             Ms = "Arctic Warrior [Lv. 1350]"
             NaemQuest = "FrostQuest"
@@ -493,6 +545,9 @@ function CheckQuest()
             PosQuest = Vector3.new(5669.43506, 28.2117786, -6482.60107)
             CFrameMon = CFrame.new(5995.07471, 57.3188477, -6183.47314)
             PosMon = Vector3.new(5995.07471, 57.3188477, -6183.47314)
+            if _G.AutoFarm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 20000 then
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-6508.5581054688, 89.034996032715, -132.83953857422))
+			end
         elseif MyLevel == 1375 or MyLevel <= 1424 then 
             Ms = "Snow Lurker [Lv. 1375]"
             NaemQuest = "FrostQuest"
@@ -735,7 +790,7 @@ end
 	
 	spawn(function()
     game:GetService("RunService").Heartbeat:Connect(function()
-        if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and (_G.AutoFarm or _G.Observation or _G.AutoNew or _G.Factory or _G.GunMastery or _G.Mastery or FramBoss or FramAllBoss or _G.AutoBartilo or _G.MobAura or _G.AutoRengoku or _G.AutoSharkman or _G.Ectoplasm or _G.PoleHop or _G.SwanHop or _G.BlackBeardHop or _G.Chest or _G.Electro or rainbowhaki or Hunter or observationv2 or _G.ElitehuntHop or _G.EliteHunt or _G.Pole or _G.Tushitahop or _G.YamaHop or _G.StoreFruit or _G.HolyTorch)  then
+        if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and (_G.NoClip or _G.AutoFarm or _G.Observation or _G.AutoNew or _G.Factory or _G.GunMastery or _G.Mastery or FramBoss or FramAllBoss or _G.AutoBartilo or _G.MobAura or _G.AutoRengoku or _G.AutoSharkman or _G.Ectoplasm or _G.PoleHop or _G.SwanHop or _G.BlackBeardHop or _G.Chest or _G.Electro or rainbowhaki or Hunter or observationv2 or _G.ElitehuntHop or _G.EliteHunt or _G.Pole or _G.Tushitahop or _G.YamaHop or _G.StoreFruit or _G.HolyTorch)  then
             setfflag("HumanoidParallelRemoveNoPhysics", "False")
             setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
             game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
@@ -745,7 +800,7 @@ end)
 
 spawn(function()
     game:GetService("RunService").Heartbeat:Connect(function()
-        if _G.AutoFarm or _G.Observation or _G.AutoNew or _G.Factory or _G.GunMastery or _G.Mastery or FramBoss or FramAllBoss or _G.AutoBartilo or _G.MobAura or _G.AutoRengoku or _G.AutoSharkman or _G.Ectoplasm or _G.PoleHop or _G.SwanHop or _G.BlackBeardHop or _G.Chest or _G.Electro or rainbowhaki or Hunter or observationv2 or _G.ElitehuntHop or _G.EliteHunt or _G.Pole or _G.Tushitahop or _G.YamaHop or _G.StoreFruit or _G.HolyTorch then
+        if _G.NoClip or _G.AutoFarm or _G.Observation or _G.AutoNew or _G.Factory or _G.GunMastery or _G.Mastery or FramBoss or FramAllBoss or _G.AutoBartilo or _G.MobAura or _G.AutoRengoku or _G.AutoSharkman or _G.Ectoplasm or _G.PoleHop or _G.SwanHop or _G.BlackBeardHop or _G.Chest or _G.Electro or rainbowhaki or Hunter or observationv2 or _G.ElitehuntHop or _G.EliteHunt or _G.Pole or _G.Tushitahop or _G.YamaHop or _G.StoreFruit or _G.HolyTorch then
             if not game:GetService("Workspace"):FindFirstChild("LOL") then
                 local LOL = Instance.new("Part")
                 LOL.Name = "LOL"
@@ -766,7 +821,7 @@ end)
 
 spawn(function()
     game:GetService("RunService").Stepped:Connect(function()
-        if _G.AutoFarm or _G.Observation or _G.AutoNew or _G.Factory or _G.GunMastery or _G.Mastery or FramBoss or FramAllBoss or _G.AutoBartilo or _G.MobAura or _G.AutoRengoku or _G.AutoSharkman or _G.Ectoplasm or _G.PoleHop or _G.SwanHop or _G.BlackBeardHop or _G.Chest or _G.Electro or rainbowhaki or Hunter or observationv2 or _G.ElitehuntHop or _G.EliteHunt or _G.Pole or _G.Tushitahop or _G.YamaHop or _G.StoreFruit or _G.HolyTorch then
+        if _G.NoClip or _G.AutoFarm or _G.Observation or _G.AutoNew or _G.Factory or _G.GunMastery or _G.Mastery or FramBoss or FramAllBoss or _G.AutoBartilo or _G.MobAura or _G.AutoRengoku or _G.AutoSharkman or _G.Ectoplasm or _G.PoleHop or _G.SwanHop or _G.BlackBeardHop or _G.Chest or _G.Electro or rainbowhaki or Hunter or observationv2 or _G.ElitehuntHop or _G.EliteHunt or _G.Pole or _G.Tushitahop or _G.YamaHop or _G.StoreFruit or _G.HolyTorch then
             for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
                 if v:IsA("BasePart") then
                     v.CanCollide = false
@@ -796,7 +851,7 @@ end)
 	end)
 	game:GetService("RunService").Heartbeat:Connect(
 	function()
-		if _G.AutoFarm or _G.Observation or _G.AutoNew or _G.Factory or _G.GunMastery or _G.Mastery or FramBoss or FramAllBoss or _G.AutoBartilo or _G.MobAura or _G.AutoRengoku or _G.AutoSharkman or _G.Ectoplasm or _G.PoleHop or _G.SwanHop or _G.BlackBeardHop or _G.Chest or _G.Electro or rainbowhaki or Hunter or observationv2 or _G.ElitehuntHop or _G.EliteHunt or _G.Pole or _G.Tushitahop or _G.YamaHop or _G.StoreFruit or _G.HolyTorch then
+		if _G.NoClip or _G.AutoFarm or _G.Observation or _G.AutoNew or _G.Factory or _G.GunMastery or _G.Mastery or FramBoss or FramAllBoss or _G.AutoBartilo or _G.MobAura or _G.AutoRengoku or _G.AutoSharkman or _G.Ectoplasm or _G.PoleHop or _G.SwanHop or _G.BlackBeardHop or _G.Chest or _G.Electro or rainbowhaki or Hunter or observationv2 or _G.ElitehuntHop or _G.EliteHunt or _G.Pole or _G.Tushitahop or _G.YamaHop or _G.StoreFruit or _G.HolyTorch then
 			if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") then
 				game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
 			end
@@ -5721,152 +5776,252 @@ end)
 			end
 		end)
 	end
+	
+	spawn(function()
+	    game:GetService("RunService").Heartbeat:Connect(function()
+	    pcall(function()
+	        if _G.StopTweenEIEI == false then
+	           StopTween()
+	       end
+	    end)
+   end)
+	end)
+	
 	page6:Label("Teleport Island")
 	if NewWorld then
-		page6:Button("Dock",function()
+	    local Tplist1 = {
+	        "Dock",
+	        "Kingdom of Rose",
+	        "Mansion",
+	        "Flamingo Room",
+	        "Green Zone",
+	        "Cafe",
+	        "Factroy",
+	        "Colosseum",
+	        "GraveIsland",
+	        "Snow Mountain",
+	        "Cold Island",
+	        "Hot Island",
+	        "Cursed Ship",
+	        "IceCastle",
+	        "Forgotten Island",
+	        "Usoapp Island",
+	        "Minisky Island"
+	    }
+	    local TpIs1 = page6:Drop("Select Island" ,false, Tplist1,function(Value)
+		_G.TpSec = Value
+	    end)
+        page6:Toggle("Teleport",false,function(value)
+		_G.TpTo = value
+		_G.NoClip = value
+		_G.StopTweenEIEI = value
+		if _G.TpSec  == "Dock" and _G.TpTo then
 		    totarget(CFrame.new(82.9490662, 18.0710983, 2834.98779))
-		end)
-		page6:Button("Kingdom of Rose",function()
+		end
+		if _G.TpSec  == "Kingdom of Rose" and _G.TpTo then
 		    totarget(CFrame.new(-394.983521, 118.503128, 1245.8446))
-		end)
-		page6:Button("Mansion",function()
+		end
+		if _G.TpSec  == "Mansion" and _G.TpTo then
 		    totarget(CFrame.new(-390.096313, 331.886475, 673.464966))
-		end)
-		page6:Button("Flamingo Room",function()
+		end
+		if _G.TpSec  == "Flamingo Room" and _G.TpTo then
 		    totarget(CFrame.new(2302.19019, 15.1778421, 663.811035))
-		end)
-		page6:Button("Green Zone",function()
+		end
+		if _G.TpSec  == "Green Zone" and _G.TpTo then
 		    totarget(CFrame.new(-2372.14697, 72.9919434, -3166.51416))
-		end)
-		page6:Button("Cafe",function()
+		end
+		if _G.TpSec  == "Cafe" and _G.TpTo then
 		    totarget(CFrame.new(-385.250916, 73.0458984, 297.388397))
-		end)
-		page6:Button("Factroy",function()
+		end
+		if _G.TpSec  == "Factroy" and _G.TpTo then
 		    totarget(CFrame.new(430.42569, 210.019623, -432.504791))
-		end)
-		page6:Button("Colosseum",function()
+		end
+		if _G.TpSec  == "Colosseum" and _G.TpTo then
 		    totarget(CFrame.new(-1836.58191, 44.5890656, 1360.30652))
-		end)
-		page6:Button("GraveIsland",function()
+		end
+		if _G.TpSec  == "GraveIsland" and _G.TpTo then
 		    totarget(CFrame.new(-5411.47607, 48.8234024, -721.272522))
-		end)
-		page6:Button("Snow Mountain",function()
+		end
+		if _G.TpSec  == "Snow Mountain" and _G.TpTo then
 		    totarget(CFrame.new(511.825226, 401.765198, -5380.396))
-		end)
-		page6:Button("Cold Island",function()
+		end
+		if _G.TpSec  == "Cold Island" and _G.TpTo then
 		    totarget(CFrame.new(-6026.96484, 14.7461271, -5071.96338))
-		end)
-		page6:Button("Hot Island",function()
+		end
+		if _G.TpSec  == "Hot Island" and _G.TpTo then
 		    totarget(CFrame.new(-5478.39209, 15.9775667, -5246.9126))
-		end)
-		page6:Button("Cursed Ship",function()
+		end
+		if _G.TpSec  == "Cursed Ship" and _G.TpTo then
 		    totarget(CFrame.new(902.059143, 124.752518, 33071.8125))
-		end)
-		page6:Button("IceCastle",function()
+		end
+		if _G.TpSec  == "IceCastle" and _G.TpTo then
 		    totarget(CFrame.new(5400.40381, 28.21698, -6236.99219))
-		end)
-		page6:Button("Forgotten Island",function()
+		end
+		if _G.TpSec  == "Forgotten Island" and _G.TpTo then
 		    totarget(CFrame.new(-3043.31543, 238.881271, -10191.5791))
-		end)
-		page6:Button("Usoapp Island",function()
+		end
+	    if _G.TpSec  == "Usoapp Island" and _G.TpTo then
 		    totarget(CFrame.new(4748.78857, 8.35370827, 2849.57959))
-		end)
-		page6:Button("Minisky Island",function()
+		end
+		if _G.TpSec  == "Minisky Island" and _G.TpTo then
 		    totarget(CFrame.new(-260.358917, 49325.7031, -35259.3008))
+		end
 		end)
 	end
 	if OldWorld then
-		page6:Button("Start Island",function()
+	    local Tplist1 = {
+	        "Start Island",
+	        "Marine Start",
+	        "Middle Town",
+	        "Jungle",
+	        "Pirate Village",
+	        "Desert",
+	        "Frozen Village",
+	        "MarineFord",
+	        "Colosseum",
+	        "Sky island 1 ",
+	        "Sky island 2 ",
+	        "Sky island 3 ",
+	        "Sky island 4 ",
+	        "Prison",
+	        "Magma Village",
+	        "UndeyWater City",
+	        "Fountain City",
+	        "House Cyborg's",
+	        "Shank's Room",
+	        "Mob Island"
+	    }
+	    local TpIs1 = page6:Drop("Select Island" ,false, Tplist1,function(Value)
+		_G.TpSec = Value
+	    end)
+        page6:Toggle("Teleport",false,function(value)
+		_G.TpTo = value
+		_G.NoClip = value
+		_G.StopTweenEIEI = value
+		if _G.TpSec  == "Start Island" and _G.TpTo then
 		    totarget(CFrame.new(1071.2832, 16.3085976, 1426.86792))
-		end)
-		page6:Button("Marine Start",function()
+		end
+		if _G.TpSec  == "Marine Start" and _G.TpTo then
 		    totarget(CFrame.new(-2573.3374, 6.88881969, 2046.99817))
-		end)
-		page6:Button("Middle Town",function()
+		end
+		if _G.TpSec  == "Middle Town" and _G.TpTo then
 		    totarget(CFrame.new(-655.824158, 7.88708115, 1436.67908))
-		end)
-		page6:Button("Jungle",function()
+		end
+		if _G.TpSec  == "Jungle" and _G.TpTo then
 		    totarget(CFrame.new(-1249.77222, 11.8870859, 341.356476))
-		end)
-		page6:Button("Pirate Village",function()
+		end
+		if _G.TpSec  == "Pirate Village" and _G.TpTo then
 		    totarget(CFrame.new(-1122.34998, 4.78708982, 3855.91992))
-		end)
-		page6:Button("Desert",function()
+		end
+		if _G.TpSec  == "Desert" and _G.TpTo then
 		    totarget(CFrame.new(1094.14587, 6.47350502, 4192.88721))
-		end)
-		page6:Button("Frozen Village",function()
+		end
+		if _G.TpSec  == "Frozen Village" and _G.TpTo then
 		    totarget(CFrame.new(1198.00928, 27.0074959, -1211.73376))
-		end)
-		page6:Button("MarineFord",function()
+		end
+		if _G.TpSec  == "MarineFord" and _G.TpTo then
 		    totarget(CFrame.new(-4505.375, 20.687294, 4260.55908))
-		end)
-		page6:Button("Colosseum",function()
+		end
+		if _G.TpSec  == "Colosseum" and _G.TpTo then
 		    totarget(CFrame.new(-1428.35474, 7.38933945, -3014.37305))
-		end)
-		page6:Button("Sky island 1 ",function()
+		end
+		if _G.TpSec  == "Sky island 1 " and _G.TpTo then
 		    totarget(CFrame.new(-4970.21875, 717.707275, -2622.35449))
-		end)
-		page6:Button("Sky island 2 ",function()
+		end
+		if _G.TpSec  == "Sky island 2 " and _G.TpTo then
 		    totarget(CFrame.new(-4813.0249, 903.708557, -1912.69055))
-		end)
-		page6:Button("Sky island 3 ",function()
+		end
+		if _G.TpSec  == "Sky island 3 " and _G.TpTo then
 		    totarget(CFrame.new(-7952.31006, 5545.52832, -320.704956))
-		end)
-		page6:Button("Sky island 4 ",function()
+		end
+		if _G.TpSec  == "Sky island 4 " and _G.TpTo then
 		    totarget(CFrame.new(-7793.43896, 5607.22168, -2016.58362))
-		end)
-		page6:Button("Prison",function()
+		end
+		if _G.TpSec  == "Prison" and _G.TpTo then
 		    totarget(CFrame.new(4854.16455, 5.68742752, 740.194641))
-		end)
-		page6:Button("Magma Village",function()
+		end
+		if _G.TpSec  == "Magma Village" and _G.TpTo then
 		    totarget(CFrame.new(-5231.75879, 8.61593437, 8467.87695))
-		end)
-		page6:Button("UndeyWater City",function()
+		end
+		if _G.TpSec  == "UndeyWater City" and _G.TpTo then
 		    totarget(CFrame.new(61163.8516, 11.7796879, 1819.78418))
-		end)
-		page6:Button("Fountain City",function()
+		end
+		if _G.TpSec  == "Fountain City" and _G.TpTo then
 		    totarget(CFrame.new(5132.7124, 4.53632832, 4037.8562))
-		end)
-		page6:Button("House Cyborg's",function()
+		end
+		if _G.TpSec  == "House Cyborg's" and _G.TpTo then
 		    totarget(CFrame.new(6262.72559, 71.3003616, 3998.23047))
-		end)
-		page6:Button("Shank's Room",function()
+		end
+		if _G.TpSec  == "Shank's Room" and _G.TpTo then
 		    totarget(CFrame.new(-1442.16553, 29.8788261, -28.3547478))
-		end)
-		page6:Button("Mob Island",function()
+		end
+		if _G.TpSec  == "Mob Island" and _G.TpTo then
 		    totarget(CFrame.new(-2850.20068, 7.39224768, 5354.99268))
-		end)
+		end
+	    end)
 	end   
 	if ThreeWorld then
-		page6:Button("Port Towen",function()
+	    local Tplist1 = {
+	        "Port Towen",
+	        "Hydra Island",
+	        "Great Tree",
+	        "Castle on the Sea",
+	        "Floating Turtle",
+	        "Mansion",
+	        "Secret Temple",
+	        "Friendly Arena",
+	        "Beautiful Pirate Domain",
+	        "Teler Park",
+	        "Haunted Castle",
+	        "Ice Cream Island",
+	        "Peanut Island"
+	    }
+	    local TpIs1 = page6:Drop("Select Island" ,false, Tplist1,function(Value)
+		_G.TpSec = Value
+	    end)
+        page6:Toggle("Teleport",false,function(value)
+		_G.TpTo = value
+		_G.NoClip = value
+		_G.StopTweenEIEI = value
+		if _G.TpSec  == "Port Towen" and _G.TpTo then
 		    totarget(CFrame.new(-610.309692, 57.8323097, 6436.33594))
-		end)
-		page6:Button("Hydra Island",function()
+		end
+		if _G.TpSec  == "Hydra Island" and _G.TpTo then
 		    totarget(CFrame.new(5229.99561, 603.916565, 345.154022))
-		end)
-		page6:Button("Great Tree",function()
+		end
+		if _G.TpSec  == "Great Tree" and _G.TpTo then
 		    totarget(CFrame.new(2174.94873, 28.7312393, -6728.83154))
-		end)
-		page6:Button("Castle on the Sea",function()
+		end
+		if _G.TpSec  == "Castle on the Sea" and _G.TpTo then
 		    totarget(CFrame.new(-5477.62842, 313.794739, -2808.4585))
-		end)
-		page6:Button("Floating Turtle",function()
+		end
+		if _G.TpSec  == "Floating Turtle" and _G.TpTo then
 		    totarget(CFrame.new(-10919.2998, 331.788452, -8637.57227))
-		end)
-		page6:Button("Mansion",function()
+		end
+		if _G.TpSec  == "Mansion" and _G.TpTo then
 		    totarget(CFrame.new(-12553.8125, 332.403961, -7621.91748))
-		end)
-		page6:Button("Secret Temple",function()
+		end
+		if _G.TpSec  == "Secret Temple" and _G.TpTo then
 		    totarget(CFrame.new(5217.35693, 6.56511116, 1100.88159))
-		end)
-		page6:Button("Friendly Arena",function()
+		end
+		if _G.TpSec  == "Friendly Arena" and _G.TpTo then
 		    totarget(CFrame.new(5220.28955, 72.8193436, -1450.86304))
-		end)
-		page6:Button("Beautiful Pirate Domain",function()
+		end
+		if _G.TpSec  == "Beautiful Pirate Domain" and _G.TpTo then
 		    totarget(CFrame.new(5310.8095703125, 21.594484329224, 129.39053344727))
-		end)
-		page6:Button("Teler Park",function()
+		end
+		if _G.TpSec  == "Teler Park" and _G.TpTo then
 		    totarget(CFrame.new(-9512.3623046875, 142.13258361816, 5548.845703125))
+		end
+		if _G.TpSec  == "Haunted Castle" and _G.TpTo then
+		    totarget(CFrame.new(-9514.888671875, 161.67515563965, 5839.826171875))
+		end
+		if _G.TpSec  == "Ice Cream Island" and _G.TpTo then
+		    totarget(CFrame.new(-956.11334228516, 7.7676062583923, -10803.690429688))
+		end
+		if _G.TpSec  == "Peanut Island" and _G.TpTo then
+		    totarget(CFrame.new(-2140.9064941406, 54.797485351562, -10024.803710938))
+		end
 		end)
 	end
 
