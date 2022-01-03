@@ -1,3 +1,4 @@
+
 wait(1)
 if game.PlaceId == 2753915549 or game.PlaceId == 4442272183 or game.PlaceId == 7449423635 then
 	local create = loadstring(game:HttpGet("https://raw.githubusercontent.com/DevilCurve/Serious-Hub/main/testcolor.lua"))()
@@ -496,7 +497,7 @@ function CheckQuest()
             PosQuest = Vector3.new(-5431.09473, 15.9868021, -5296.53223)
             CFrameMon = CFrame.new(-5169.71729, 34.1234779, -4669.73633)
             PosMon = Vector3.new(-5169.71729, 34.1234779, -4669.73633)
-        elseif Lv == 1250 or Lv <= 1274 or SelectMonster == "Ship Deckhand [Lv. 1250]" then -- Ship Deckhand
+        elseif MyLevel == 1250 or MyLevel <= 1274 or SelectMonster == "Ship Deckhand [Lv. 1250]" then -- Ship Deckhand
             Ms = "Ship Deckhand [Lv. 1250]"
             NaemQuest = "ShipQuest1"
             LevelQuest = 1
@@ -506,7 +507,7 @@ function CheckQuest()
 			if _G.AutoFarm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 20000 then
 				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
 			end
-		elseif Lv == 1275 or Lv <= 1299 or SelectMonster == "Ship Engineer [Lv. 1275]" then -- Ship Engineer
+		elseif MyLevel == 1275 or MyLevel <= 1299 or SelectMonster == "Ship Engineer [Lv. 1275]" then -- Ship Engineer
             Ms = "Ship Engineer [Lv. 1275]"
             NaemQuest = "ShipQuest1"
             LevelQuest = 2
@@ -516,7 +517,7 @@ function CheckQuest()
 			if _G.AutoFarm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 20000 then
 				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
 			end
-		elseif Lv == 1300 or Lv <= 1324 or SelectMonster == "Ship Steward [Lv. 1300]" then -- Ship Steward
+		elseif MyLevel == 1300 or MyLevel <= 1324 or SelectMonster == "Ship Steward [Lv. 1300]" then -- Ship Steward
             Ms = "Ship Steward [Lv. 1300]"
             NaemQuest = "ShipQuest2"
             LevelQuest = 1
@@ -526,7 +527,7 @@ function CheckQuest()
 			if _G.AutoFarm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 20000 then
 				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
 			end
-		elseif Lv == 1325 or Lv <= 1349 or SelectMonster == "Ship Officer [Lv. 1325]" then -- Ship Officer
+		elseif MyLevel == 1325 or MyLevel <= 1349 or SelectMonster == "Ship Officer [Lv. 1325]" then -- Ship Officer
             Ms = "Ship Officer [Lv. 1325]"
             NaemQuest = "ShipQuest2"
             LevelQuest = 2
@@ -6500,7 +6501,46 @@ game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
    end)
    page10:Toggle("AutoClick", false, function(P)
        _G.AutoClick = P
-       end)
+   end)
+   
+   page10:Line()
+   
+   page10:Toggle("AutoAimbot", false, function(q)
+       _G.AutoAimbot = q
+   end)
+   
+   spawn(function()
+while wait() do
+		pcall(function()
+			for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+			   if v.ToolTip == "Gun" then
+                _G.SelectWeaponPlayereiei = v.Name
+			   end
+		  end
+			   end)
+end
+end)
+   
+   	DistanceNear = 100
+	game:GetService("RunService").Heartbeat:Connect(function()
+	    pcall(function()
+	        if _G.AutoAimbot == true then
+			for i,v in pairs(game.Players:GetChildren()) do
+			    if v ~= game.Players.LocalPlayer then
+					if (v.Character.HumanoidRootPart.Position-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= DistanceNear then
+                   local args = {
+                            [1] = v.Character.HumanoidRootPart.Position,
+                            [2] = v.Character.HumanoidRootPart
+                        }
+                        game:GetService("Players").LocalPlayer.Character[_G.SelectWeaponPlayereiei].RemoteFunctionShoot:InvokeServer(unpack(args))
+			end
+			    end
+ 
+			end
+			end
+			end)
+end)
+
    
    spawn(function()
 	for i = 1,math.huge do
