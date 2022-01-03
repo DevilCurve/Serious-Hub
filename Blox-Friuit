@@ -6346,7 +6346,17 @@ end)
 	
 	page5:Line()
 	page5:Label(" Christmas Event ")
+	
+    page5:Toggle("Auto x2 Exp",false,function(value)
+        local args = {
+    [1] = "Candies",
+    [2] = "Buy",
+    [3] = 1,
+    [4] = 1
+}
 
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+    end)
 	page5:Button("BuyElf Hat",function()
     local args = {
     [1] = "Candies",
