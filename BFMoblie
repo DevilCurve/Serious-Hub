@@ -1930,25 +1930,6 @@ end)
 		end
 	end)
 
-local CombatFrameworkR = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework) 
-
-local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
-
-spawn(function()
-	for i = 1,math.huge do
-		game:GetService("RunService").Heartbeat:wait()
-		if _G.FastFarm  then
-			pcall(function()
-					CameraShakerR:Stop()
-					CombatFrameworkR.activeController.attacking = false
-					CombatFrameworkR.activeController.timeToNextAttack = 0
-					CombatFrameworkR.activeController.increment = 3
-					CombatFrameworkR.activeController.hitboxMagnitude = 50
-			end)
-		end
-		game:GetService("RunService").Heartbeat:wait()
-	end
-end)
 
 spawn(function()
 	game:GetService("RunService").Heartbeat:connect(function()
@@ -3855,48 +3836,7 @@ page1:CreateToggle("Auto Death Step",function(vu)
 	end)
 
 
-		page2:CreateToggle("Fast Attack",_G.FastAttk,function(value)
-			_G.FastAttk = value
-		end)
-	
-local CombatFrameworkR = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework) 
 
-local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
-
-spawn(function()
-	for i = 1,math.huge do
-		game:GetService("RunService").Heartbeat:wait()
-		if _G.FastAttk then
-			pcall(function()
-					CameraShakerR:Stop()
-					CombatFrameworkR.activeController.attacking = false
-					CombatFrameworkR.activeController.timeToNextAttack = 0
-					CombatFrameworkR.activeController.increment = 3
-					CombatFrameworkR.activeController.hitboxMagnitude = 50
-			end)
-		end
-		game:GetService("RunService").Heartbeat:wait()
-	end
-end)
-
-spawn(function()
-	game:GetService("RunService").Heartbeat:connect(function()
-		pcall(function()
-			if _G.FastAttk then
-					VirtualUser:CaptureController()
-					VirtualUser:ClickButton1(Vector2.new(1280, 672), game:GetService("Workspace").Camera.CFrame)
-			end
-		end)
-	end)
-	game:GetService("RunService").Heartbeat:connect(function()
-		pcall(function()
-			if _G.FastAttk then
-					VirtualUser:CaptureController()
-					VirtualUser:ClickButton1(Vector2.new(1280, 672), game:GetService("Workspace").Camera.CFrame)
-			end
-		end)
-	end)
-end)
 		
 
 	if ThreeWorld then
@@ -5802,26 +5742,7 @@ end)
 		_G.AllBossHop = Value
 	end)
 
-	---------------------------------
-local CombatFrameworkR = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework) 
 
-local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
-
-spawn(function()
-	for i = 1,math.huge do
-		game:GetService("RunService").Heartbeat:wait()
-		if _G.FastBoss then
-			pcall(function()
-					CameraShakerR:Stop()
-					CombatFrameworkR.activeController.attacking = false
-					CombatFrameworkR.activeController.timeToNextAttack = 0
-					CombatFrameworkR.activeController.increment = 3
-					CombatFrameworkR.activeController.hitboxMagnitude = 50
-			end)
-		end
-		game:GetService("RunService").Heartbeat:wait()
-	end
-end)
 
 spawn(function()
 	game:GetService("RunService").Heartbeat:connect(function()
@@ -7855,24 +7776,18 @@ end)
 						Pz = v.HumanoidRootPart.CFrame.Z
 						if _G.FightingMode == nil then
 							local VirtualUser = game:GetService('VirtualUser')
-							local RUOK = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
 
 							VirtualUser:CaptureController()
 							VirtualUser:ClickButton1(Vector2.new(1280, 672), game:GetService("Workspace").Camera.CFrame)
 							game:GetService("RunService").Heartbeat:Wait()
-							pcall(function()
-								RUOK.activeController.timeToNextAttack = 0
-							end)
+							
 						else
 							local VirtualUser = game:GetService('VirtualUser')
-							local RUOK = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
 
 							VirtualUser:CaptureController()
 							VirtualUser:ClickButton1(Vector2.new(1280, 672), game:GetService("Workspace").Camera.CFrame)
 							game:GetService("RunService").Heartbeat:Wait()
-							pcall(function()
-								RUOK.activeController.timeToNextAttack = 0
-							end)
+			
 
 						end
 						_G.onNext = true
