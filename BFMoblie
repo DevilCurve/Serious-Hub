@@ -7298,12 +7298,6 @@ game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 	end)
 
 
-   page10:CreateToggle("FastAttack", function(I)
-       _G.AFastAttack = I
-   end)
-   page10:CreateToggle("Secret Function", function(O)
-       _G.SecretFunction = O
-   end)
    page10:CreateToggle("AutoClick", function(P)
        _G.AutoClick = P
    end)
@@ -7346,30 +7340,7 @@ end)
 end)
 
    
-   spawn(function()
-	for i = 1,math.huge do
-		game:GetService("RunService").Heartbeat:wait()
-		if _G.AFastAttack then
-			pcall(function()
-					CameraShakerR:Stop()
-					CombatFrameworkR.activeController.attacking = false
-					CombatFrameworkR.activeController.timeToNextAttack = 0
-					CombatFrameworkR.activeController.increment = 3
-			end)
-		end
-		game:GetService("RunService").Heartbeat:wait()
-	end
-end)
-
-spawn(function()
-	game:GetService("RunService").Heartbeat:connect(function()
-		pcall(function()
-		if _G.SecretFunction then
-					CombatFrameworkR.activeController.hitboxMagnitude = 50
-			end
-		end)
-end)
-end)
+  
 
 spawn(function()
 	game:GetService("RunService").Heartbeat:connect(function()
